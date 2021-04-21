@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+	<ul>
+		{% for movie in movies %}
+			<li><a href='{{movie.id}}'>{{movie.name}}</a>
+		{% endfor %}
+	</ul>
+	<a href="http://127.0.0.1:8000/customers"><input type="submit" value="Back">
+</body>
+
+</html>

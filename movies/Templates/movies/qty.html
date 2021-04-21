@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+    <form action="add-user">
+		<input type="text" name="movie_name" placeholder="Enter Movie">
+		<input type="number" name="qty" placeholder="Enter Quantity">
+		<a href="http://127.0.0.1:8000/movies/read"><input type="submit" value="Add New Movie"></a>
+	</form>
+    <ul>
+        {% for movie in movies %}
+            <li><a href ='movies/{{movie.id}}'>{{movie.name}}</a>
+        {% endfor %}
+    </ul>
+    <a href="http://127.0.0.1:8000/movies/read"><input type="submit" value="Update">
+</body>
+
+</html>

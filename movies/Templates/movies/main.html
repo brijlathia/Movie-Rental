@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<body>
+	<form action="add-user">
+		<input type="text" name="name" placeholder="Enter Name">
+		<input type="number" name="age" placeholder="Enter Age">
+		<input type="text" name="city" placeholder="Enter City">
+		<a href="http://127.0.0.1:8000/customers"><input type="submit" value="Add New Customer"></a>
+	</form>
+	<h1>Customers List</h1>
+	<ul>
+		{% for customer in customers %}
+		<li><a href='customers/{{customer.id}}'>{{customer.name}}</a> &nbsp; <a
+				href='customers/{{customer.id}}/movies'>Rent Movie</a></li>
+		{% endfor %}
+	</ul>
+	<h1>Movies Available</a></h1>
+	<ul>
+		{% for movie in movies %}
+			{%if movie.qty > 0%}	
+				<li><a href ='movies/Templates/movies/{{movie.id}}'>{{movie.name}}</a>
+			{%endif%}
+		{% endfor %}
+	</ul>
+	<h1>Movies Not Available</h1>
+	<ul>
+		{% for movie in movies %}
+			{%if movie.name != "Delete Movie"%}
+				{%if movie.qty == 0%}	
+					<li><a href ='movies/Templates/movies/{{movie.id}}'>{{movie.name}}</a>
+				{%endif%}
+			{%endif%}
+		{% endfor %}
+	</ul>
+
+</body>
+
+</html>
